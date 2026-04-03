@@ -19,9 +19,9 @@ function startTyping() {
     if (index < message.length) {
         text.textContent += message[index];
 
-        // play typing sound
-        sound.currentTime = 0;
-        sound.play();
+        // play typing sound (fixed)
+        const s = sound.cloneNode();
+        s.play();
 
         index++;
         setTimeout(startTyping, 60);
@@ -38,15 +38,12 @@ document.getElementById("choice1").onclick = () => {
 
 // Choice 2 -> Cat
 document.getElementById("choice2").onclick = () => {
-
     // hide text and buttons
     text.style.display = "none";
     choices.style.display = "none";
-
     // change to BIG image
     image.src = "mikhao.jpg";
-
     // make it fullscreen
-    image.style.width = "100%";
+    image.style.width = "75%";
     image.style.marginTop = "0";
 };
